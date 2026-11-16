@@ -1,0 +1,27 @@
+@page "/"
+@page "/bai-tap-data-binding"
+@page "/bai-tap-databinding-car"
+@rendermode InteractiveServer
+
+<div class="container">
+    <h3>Change color car</h3>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <img src="@imgHinh" alt="car" class="img-fluid" style="max-width: 450px;" />
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-danger me-2" @onclick="@((e) => ChonXe("red"))">Red color</button>
+            <button class="btn btn-secondary me-2" @onclick="@((e) => ChonXe("silver"))">Silver color</button>
+            <button class="btn btn-dark me-2" @onclick="@((e) => ChonXe("black"))">Black color</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string imgHinh { get; set; } = "/products/red-car.jpg";
+
+    private void ChonXe(string mau)
+    {
+        imgHinh = $"/products/{mau}-car.jpg";
+    }
+}
